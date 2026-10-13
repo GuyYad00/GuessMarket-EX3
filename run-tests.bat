@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 rem ============================================================================
 rem  Guess Market - EX3  :  acceptance tests
-rem    run-tests.bat            engine tests (no server needed) + HTTP smoke + HTTP edge tests
+rem    run-tests.bat            engine tests (no server needed) + HTTP smoke + edge + robust tests
 rem    run-tests.bat ui         ... plus the automated two-client JavaFX UI test
 rem  Run build.bat first. HTTP/UI tests expect the WAR deployed on
 rem  http://localhost:8080/guessmarket (see tomcat-start.bat).
@@ -34,7 +34,7 @@ echo(
 echo ===== HTTP tests (server must be running) =====
 if exist "%OUT%\test-http" rmdir /s /q "%OUT%\test-http"
 mkdir "%OUT%\test-http"
-javac -d "%OUT%\test-http" "%HERE%_test\http\httptest\HttpSmokeTest.java" "%HERE%_test\http\httptest\HttpEdgeTest.java"
+javac -d "%OUT%\test-http" "%HERE%_test\http\httptest\HttpSmokeTest.java" "%HERE%_test\http\httptest\HttpEdgeTest.java" "%HERE%_test\http\httptest\HttpRobustTest.java"
 if errorlevel 1 (echo [ERROR] http test compilation failed & exit /b 1)
 java -cp "%OUT%\test-http" httptest.HttpSmokeTest "%HERE%samples"
 if errorlevel 1 set "FAILED=1"
@@ -42,6 +42,12 @@ if errorlevel 1 set "FAILED=1"
 echo(
 echo ===== HTTP edge tests (validation, market math, blocked user, concurrency, sessions) =====
 java -cp "%OUT%\test-http" httptest.HttpEdgeTest
+if errorlevel 1 set "FAILED=1"
+
+echo(
+echo ===== HTTP robust tests (web host + proxy, hostile URLs, verbs and parameters, schema errors, ledger) =====
+echo NOTE: starts two temporary Node hosts on ports 3105 and 3106 (needs node on the PATH).
+java -cp "%OUT%\test-http" httptest.HttpRobustTest http://localhost:8080/guessmarket "%HERE%web-client"
 if errorlevel 1 set "FAILED=1"
 
 if /i "%~1"=="ui" (

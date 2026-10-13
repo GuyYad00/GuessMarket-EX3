@@ -55,7 +55,15 @@ function proxy(req, res) {
 }
 
 function serveStatic(req, res) {
-  let urlPath = decodeURIComponent(req.url.split('?')[0]);
+  let urlPath;
+  try {
+    urlPath = decodeURIComponent(req.url.split('?')[0]);
+  } catch (e) {
+    // malformed percent-encoding (for example "/%zz"): answer 400 instead of throwing
+    res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Bad request: malformed URL');
+    return;
+  }
   if (urlPath === '/') {
     urlPath = '/index.html';
   }
@@ -78,10 +86,19 @@ function serveStatic(req, res) {
 }
 
 const server = http.createServer((req, res) => {
-  if (req.url === API_PREFIX || req.url.startsWith(API_PREFIX + '/') || req.url.startsWith(API_PREFIX + '?')) {
-    proxy(req, res);
-  } else {
-    serveStatic(req, res);
+  try {
+    if (req.url === API_PREFIX || req.url.startsWith(API_PREFIX + '/') || req.url.startsWith(API_PREFIX + '?')) {
+      proxy(req, res);
+    } else {
+      serveStatic(req, res);
+    }
+  } catch (err) {
+    // a single odd request must never take the host down
+    console.error('Request failed:', req.method, req.url, err.message);
+    if (!res.headersSent) {
+      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+    }
+    res.end('Internal error');
   }
 });
 

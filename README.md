@@ -193,7 +193,7 @@ web-client\run.bat              :: start the web client host and open http://loc
 ### Tests
 
 ```bat
-run-tests.bat                   :: engine checks + two HTTP suites (smoke, edge cases + concurrency) against the deployed WAR
+run-tests.bat                   :: engine checks + three HTTP suites (smoke; edge cases + concurrency; web host, hostile input, schema, ledger)
 run-tests.bat ui                :: also drives two real JavaFX clients off-screen end to end
 ```
 
