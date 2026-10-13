@@ -48,4 +48,7 @@ const Api = {
   users: () => apiCall('GET', '/users'),
   myDetails: () => apiCall('GET', '/users/details'),
   loadFunds: (amount) => apiCall('POST', '/users/funds', { amount }),
+  // chat (the exercise 3 bonus; the web client simply reuses the same two endpoints)
+  chatSince: (version) => apiCall('GET', '/chat', { version }),
+  sendChat: (text) => apiCall('POST', '/chat', { text }),
 };

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess Market - Chat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-title">Guess Market</span>
+    <span class="sep"></span>
+    <span id="user-badge" class="user-badge"></span>
+    <span id="conn" class="conn"><span class="dot"></span><span>Connecting...</span></span>
+    <span class="spacer"></span>
+    <button id="logout-button" class="danger">Logout</button>
+  </header>
+  <nav class="tabs">
+    <a href="events.html" data-tab="events">Events</a>
+    <a href="account.html" data-tab="account">Account</a>
+    <a href="chat.html" data-tab="chat">Chat (bonus)</a>
+  </nav>
+
+  <main class="page">
+    <section class="card chat-card">
+      <h2>Chat room (everyone sees everything)</h2>
+      <p class="muted">Messages are shared with every connected user, in the browser and in the JavaFX client alike.</p>
+      <ul id="chat-lines" class="chat-lines"><li class="empty">No messages yet. Say hello!</li></ul>
+      <form id="chat-form" class="row chat-form">
+        <input id="chat-input" type="text" maxlength="500" placeholder="Type a message and press Enter" autocomplete="off">
+        <button id="chat-send" type="submit" class="primary">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

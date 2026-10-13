@@ -35,7 +35,7 @@ single desktop app is now split in two:
 |------|-----------|------|
 | **Server** | Java 25, Servlets (Tomcat 10.1), Gson, JAXB | Owns the engine and all state. Validates uploaded event files, runs both market mechanisms, keeps user accounts, ledgers and the chat. |
 | **JavaFX client** | JavaFX 25, OkHttp | Login, Events screen, Account screen, Chat. Pulls fresh data from the server every 800 ms and redraws only when something changed. |
-| **Web client** | HTML / CSS / vanilla JS, Node (static host + proxy) | Login, Events and Account screens in the browser, against the very same API. No server changes needed. |
+| **Web client** | HTML / CSS / vanilla JS, Node (static host + proxy) | Login, Events, Account and Chat screens in the browser, against the very same API. No server changes needed. |
 
 Two market mechanisms are supported, chosen per event:
 
@@ -94,9 +94,18 @@ Two market mechanisms are supported, chosen per event:
   </tr>
 </table>
 
-<p align="center">
-  <img src="docs/assets/06-web-account.png" width="840" alt="Web client - account screen">
-</p>
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/assets/06-web-account.png" alt="Web client - account screen">
+      <p align="center"><em>Web client: the account screen</em></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/assets/07-web-chat.png" alt="Web client - chat">
+      <p align="center"><em>Web client: the same chat room, browser and JavaFX users talking through the server</em></p>
+    </td>
+  </tr>
+</table>
 
 ---
 
