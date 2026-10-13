@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess Market - Account</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-title">Guess Market</span>
+    <span class="sep"></span>
+    <span id="user-badge" class="user-badge"></span>
+    <span id="conn" class="conn"><span class="dot"></span><span>Connecting...</span></span>
+    <span class="spacer"></span>
+    <button id="logout-button" class="danger">Logout</button>
+  </header>
+  <nav class="tabs">
+    <a href="events.html" data-tab="events">Events</a>
+    <a href="account.html" data-tab="account">Account</a>
+  </nav>
+
+  <main class="page">
+    <div class="split wide-left">
+      <section class="card">
+        <h2>Users in the system</h2>
+        <div class="table-wrap">
+          <table id="users-table">
+            <thead>
+              <tr><th>Name</th><th class="num">Balance</th><th>Market maker</th><th>MM of events</th><th>Online</th><th>Blocked</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <h2 id="my-name"></h2>
+          <div class="muted">Account balance</div>
+          <div id="my-balance" class="money" style="font-size:30px"></div>
+          <form id="funds-form" class="row" style="margin:8px 0 12px 0">
+            <label>Load money into your account:</label>
+            <input id="funds-amount" style="width:170px" type="number" min="0.01" step="0.01" placeholder="amount, e.g. 1000">
+            <button id="funds-button" type="submit" class="primary">Load Funds</button>
+          </form>
+          <div class="info-grid">
+            <span class="k">Total loaded:</span><span class="v" id="my-loaded"></span>
+            <span class="k">Blocked:</span><span class="v" id="my-blocked"></span>
+            <span class="k">Market maker of:</span><span class="v" id="my-mm"></span>
+            <span class="k">Participations:</span><span class="v" id="my-participations"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Events you participate in (select a row for details)</h3>
+          <div class="table-wrap">
+            <table id="participations-table">
+              <thead><tr><th>Event</th><th>Method</th><th>Status</th><th>Role</th><th>Involvement</th><th class="num">Profit / loss</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div id="participation-details"></div>
+        </div>
+
+        <div class="card">
+          <h3>Account activity (newest first)</h3>
+          <div class="table-wrap">
+            <table id="ledger-table">
+              <thead><tr><th>#</th><th>Type</th><th>Description</th><th class="num">Amount</th><th class="num">Balance after</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Balance over time</h3>
+          <canvas id="balance-chart" class="chart"></canvas>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>

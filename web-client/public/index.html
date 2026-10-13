@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess Market - Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-bg">
+  <div class="card login-card">
+    <h1>Guess Market</h1>
+    <p class="muted">Prediction markets, web client edition</p>
+    <p>Enter a user name to join:</p>
+    <form id="login-form" class="row">
+      <input id="username" type="text" placeholder="Your user name" autocomplete="off" autofocus maxlength="40" style="flex:1">
+      <button id="login-button" type="submit" class="primary">Login</button>
+    </form>
+    <p id="error" class="error"></p>
+    <p class="hint">Server: /guessmarket (forwarded to Tomcat on localhost:8080)</p>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

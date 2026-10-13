@@ -1,0 +1,108 @@
+/* Default "Light" theme for Guess Market. */
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f6fa;
+    -fx-accent: #2b6cb0;
+    -fx-focus-color: #2b6cb0;
+}
+
+.top-bar {
+    -fx-background-color: linear-gradient(to right, #1f3a5f, #2b6cb0);
+}
+.top-bar .label { -fx-text-fill: white; }
+.top-bar .text-field { -fx-background-radius: 6; }
+
+.status-label { -fx-text-fill: #e6eefc; -fx-font-style: italic; }
+.bonus-label { -fx-text-fill: #d7e6ff; -fx-font-weight: bold; }
+
+.primary-button {
+    -fx-background-color: #2b6cb0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+.primary-button:hover { -fx-background-color: #245a94; }
+
+.danger-button {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+.danger-button:hover { -fx-background-color: #a5322a; }
+
+.main-tabs { -fx-background-color: transparent; }
+
+.pane-title { -fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.section-title { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.sub-title { -fx-font-weight: bold; -fx-text-fill: #33475b; }
+.book-title { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #2b6cb0; }
+
+.list-pane { -fx-background-color: transparent; }
+.filter-bar { -fx-background-color: #e9eef6; }
+.filter-label { -fx-font-weight: bold; -fx-text-fill: #33475b; }
+.filter-toggle { -fx-background-radius: 14; -fx-padding: 3 12 3 12; }
+.filter-toggle:selected { -fx-background-color: #2b6cb0; -fx-text-fill: white; }
+
+.event-cell-name { -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.event-cell-meta { -fx-text-fill: #6b7a8d; -fx-font-size: 11px; }
+
+.details-pane { -fx-background-color: transparent; }
+.details-body { -fx-background-color: transparent; }
+.details-title { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.details-description { -fx-text-fill: #4a5a6a; }
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(31,58,95,0.12), 8, 0, 0, 2);
+}
+.book-column {
+    -fx-background-color: #f7f9fc;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+    -fx-border-color: #dfe6ef;
+    -fx-border-radius: 8;
+}
+
+.info-key { -fx-text-fill: #6b7a8d; }
+.info-value { -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.stat-key { -fx-text-fill: #6b7a8d; -fx-font-size: 11px; }
+.stat-value { -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.hint { -fx-text-fill: #b06a00; -fx-font-style: italic; }
+.placeholder { -fx-text-fill: #8a97a6; -fx-font-size: 15px; }
+
+.blocked-banner {
+    -fx-background-color: #fdecea;
+    -fx-text-fill: #c0392b;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-color: #f5b7b1;
+    -fx-border-radius: 8;
+}
+
+.table-view { -fx-background-radius: 6; }
+.table-view .column-header { -fx-background-color: #eef2f8; }
+
+/* ===== exercise-3 additions: login, header, chat ===== */
+.app-title { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white; }
+.user-badge { -fx-text-fill: #d7e6ff; -fx-font-weight: bold; }
+.connection-dot { -fx-fill: #b0b8c4; }
+.connection-dot.connected { -fx-fill: #2ecc71; }
+.connection-dot.disconnected { -fx-fill: #e74c3c; }
+
+.login-view { -fx-background-color: linear-gradient(to bottom right, #1f3a5f, #2b6cb0); }
+.login-title { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1f3a5f; }
+.login-subtitle { -fx-text-fill: #6b7a8d; }
+.login-error { -fx-text-fill: #c0392b; -fx-font-weight: bold; }
+.login-card .text-field { -fx-font-size: 14px; }
+
+.balance-big { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e8449; }
+
+.chat-view { -fx-background-color: transparent; }
+.chat-author { -fx-font-weight: bold; -fx-text-fill: #2b6cb0; -fx-font-size: 11px; }
+.chat-author-me { -fx-font-weight: bold; -fx-text-fill: #1e8449; -fx-font-size: 11px; }
+.chat-text { -fx-text-fill: #1f3a5f; }

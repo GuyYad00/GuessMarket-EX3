@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess Market Server</title>
+    <style>
+        body { font-family: Segoe UI, Arial, sans-serif; margin: 40px; color: #222; }
+        code { background: #f3f3f3; padding: 2px 6px; border-radius: 4px; }
+        table { border-collapse: collapse; margin-top: 16px; }
+        td, th { border: 1px solid #ddd; padding: 6px 10px; text-align: left; }
+        th { background: #f7f7f7; }
+    </style>
+</head>
+<body>
+<h1>Guess Market Server is running</h1>
+<p>This WAR hosts the Guess Market engine (exercise 3). The JavaFX client and the web client talk to the endpoints below with JSON responses.</p>
+<table>
+    <tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr>
+    <tr><td>POST</td><td><code>/login?username=</code></td><td>Log in by name (409 if the name is connected)</td></tr>
+    <tr><td>POST</td><td><code>/logout</code></td><td>Log out</td></tr>
+    <tr><td>GET</td><td><code>/me</code></td><td>Who am I</td></tr>
+    <tr><td>POST</td><td><code>/upload</code></td><td>Upload an events XML (multipart part "file")</td></tr>
+    <tr><td>GET</td><td><code>/events</code></td><td>All events + version</td></tr>
+    <tr><td>GET</td><td><code>/events/details?id=</code></td><td>One event in depth</td></tr>
+    <tr><td>POST</td><td><code>/events/open?id=</code></td><td>Open an event (market maker)</td></tr>
+    <tr><td>POST</td><td><code>/events/close?id=&amp;winner=</code></td><td>Close an event (market maker)</td></tr>
+    <tr><td>POST</td><td><code>/events/buy?id=&amp;option=&amp;shares=</code></td><td>Buy LMSR shares</td></tr>
+    <tr><td>POST</td><td><code>/events/order?id=&amp;option=&amp;side=&amp;price=&amp;quantity=</code></td><td>Submit an order-book order</td></tr>
+    <tr><td>GET</td><td><code>/users</code></td><td>All users + version</td></tr>
+    <tr><td>GET</td><td><code>/users/details</code></td><td>My account, participations and ledger</td></tr>
+    <tr><td>POST</td><td><code>/users/funds?amount=</code></td><td>Load funds</td></tr>
+    <tr><td>GET / POST</td><td><code>/chat?version=</code> / <code>/chat?text=</code></td><td>Bonus chat</td></tr>
+</table>
+</body>
+</html>

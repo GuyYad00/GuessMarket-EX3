@@ -1,0 +1,27 @@
+# Build artifacts
+out/
+dist/
+_test/**/*.class
+
+# Bundled runtimes (large binaries; shipped inside the submission zip, not on GitHub)
+javafx-sdk-25/
+tomcat/
+
+# Packaged submission (contains the graded readme with ID numbers + emails)
+submission/
+*.zip
+readme*.docx
+
+# Course-provided sample inputs and schema: used locally and in the submission, not redistributed publicly.
+samples/
+
+# Node
+web-client/node_modules/
+
+# Editor / OS noise
+.idea/
+.vscode/
+*.iml
+*.log
+Thumbs.db
+desktop.ini

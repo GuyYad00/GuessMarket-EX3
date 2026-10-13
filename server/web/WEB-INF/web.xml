@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>Guess Market Server (EX3)</display-name>
+
+    <!-- ===== sessions / users ===== -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>gm.server.servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>gm.server.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CurrentUserServlet</servlet-name>
+        <servlet-class>gm.server.servlets.CurrentUserServlet</servlet-class>
+    </servlet>
+
+    <!-- ===== files ===== -->
+    <servlet>
+        <servlet-name>UploadFileServlet</servlet-name>
+        <servlet-class>gm.server.servlets.UploadFileServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>5242880</max-file-size>
+            <max-request-size>6291456</max-request-size>
+            <file-size-threshold>6291456</file-size-threshold>
+        </multipart-config>
+    </servlet>
+
+    <!-- ===== events ===== -->
+    <servlet>
+        <servlet-name>EventsListServlet</servlet-name>
+        <servlet-class>gm.server.servlets.EventsListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EventDetailsServlet</servlet-name>
+        <servlet-class>gm.server.servlets.EventDetailsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OpenEventServlet</servlet-name>
+        <servlet-class>gm.server.servlets.OpenEventServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CloseEventServlet</servlet-name>
+        <servlet-class>gm.server.servlets.CloseEventServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuySharesServlet</servlet-name>
+        <servlet-class>gm.server.servlets.BuySharesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PlaceOrderServlet</servlet-name>
+        <servlet-class>gm.server.servlets.PlaceOrderServlet</servlet-class>
+    </servlet>
+
+    <!-- ===== users ===== -->
+    <servlet>
+        <servlet-name>UsersListServlet</servlet-name>
+        <servlet-class>gm.server.servlets.UsersListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserDetailsServlet</servlet-name>
+        <servlet-class>gm.server.servlets.UserDetailsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadFundsServlet</servlet-name>
+        <servlet-class>gm.server.servlets.LoadFundsServlet</servlet-class>
+    </servlet>
+
+    <!-- ===== bonus: chat ===== -->
+    <servlet>
+        <servlet-name>ChatServlet</servlet-name>
+        <servlet-class>gm.server.servlets.ChatServlet</servlet-class>
+    </servlet>
+
+    <!-- ===== mappings ===== -->
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CurrentUserServlet</servlet-name>
+        <url-pattern>/me</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadFileServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventsListServlet</servlet-name>
+        <url-pattern>/events</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventDetailsServlet</servlet-name>
+        <url-pattern>/events/details</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OpenEventServlet</servlet-name>
+        <url-pattern>/events/open</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CloseEventServlet</servlet-name>
+        <url-pattern>/events/close</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuySharesServlet</servlet-name>
+        <url-pattern>/events/buy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlaceOrderServlet</servlet-name>
+        <url-pattern>/events/order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsersListServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDetailsServlet</servlet-name>
+        <url-pattern>/users/details</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadFundsServlet</servlet-name>
+        <url-pattern>/users/funds</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChatServlet</servlet-name>
+        <url-pattern>/chat</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>720</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

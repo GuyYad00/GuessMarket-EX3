@@ -1,0 +1,96 @@
+/* "Ocean" theme (bonus skin). */
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #e6f6f4;
+    -fx-accent: #0e7c86;
+    -fx-focus-color: #0e7c86;
+}
+
+.top-bar { -fx-background-color: linear-gradient(to right, #044e54, #0e7c86); }
+.top-bar .label { -fx-text-fill: white; }
+.status-label { -fx-text-fill: #d3f2ef; -fx-font-style: italic; }
+.bonus-label { -fx-text-fill: #d3f2ef; -fx-font-weight: bold; }
+
+.primary-button {
+    -fx-background-color: #0e7c86;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+.primary-button:hover { -fx-background-color: #0b666e; }
+
+.danger-button {
+    -fx-background-color: #d1495b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+
+.pane-title, .section-title, .details-title { -fx-text-fill: #044e54; -fx-font-weight: bold; }
+.pane-title { -fx-font-size: 17px; }
+.section-title { -fx-font-size: 15px; }
+.details-title { -fx-font-size: 20px; }
+.sub-title { -fx-text-fill: #08616a; -fx-font-weight: bold; }
+.book-title { -fx-text-fill: #0e7c86; -fx-font-size: 15px; -fx-font-weight: bold; }
+.details-description { -fx-text-fill: #3d5a5c; }
+
+.filter-bar { -fx-background-color: #d3ece9; }
+.filter-label { -fx-font-weight: bold; -fx-text-fill: #08616a; }
+.filter-toggle { -fx-background-radius: 14; -fx-padding: 3 12 3 12; }
+.filter-toggle:selected { -fx-background-color: #0e7c86; -fx-text-fill: white; }
+
+.event-cell-name { -fx-font-weight: bold; -fx-text-fill: #044e54; }
+.event-cell-meta { -fx-text-fill: #5a7c7e; -fx-font-size: 11px; }
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 14;
+    -fx-effect: dropshadow(gaussian, rgba(4,78,84,0.15), 8, 0, 0, 2);
+}
+.book-column {
+    -fx-background-color: #f0faf9;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+    -fx-border-color: #bfe3df;
+    -fx-border-radius: 8;
+}
+
+.info-key, .stat-key { -fx-text-fill: #5a7c7e; }
+.info-value, .stat-value { -fx-font-weight: bold; -fx-text-fill: #044e54; }
+.hint { -fx-text-fill: #b06a00; -fx-font-style: italic; }
+.placeholder { -fx-text-fill: #7fa0a0; -fx-font-size: 15px; }
+
+.blocked-banner {
+    -fx-background-color: #fdecea;
+    -fx-text-fill: #c0392b;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-color: #f5b7b1;
+    -fx-border-radius: 8;
+}
+
+.list-pane, .details-pane, .details-body, .main-tabs { -fx-background-color: transparent; }
+.table-view .column-header { -fx-background-color: #d9efec; }
+
+/* ===== exercise-3 additions: login, header, chat ===== */
+.app-title { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white; }
+.user-badge { -fx-text-fill: #d6f3f1; -fx-font-weight: bold; }
+.connection-dot { -fx-fill: #9fb8bd; }
+.connection-dot.connected { -fx-fill: #2ecc71; }
+.connection-dot.disconnected { -fx-fill: #e74c3c; }
+
+.login-view { -fx-background-color: linear-gradient(to bottom right, #0b3d4a, #138d75); }
+.login-title { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #0b3d4a; }
+.login-subtitle { -fx-text-fill: #4f7d86; }
+.login-error { -fx-text-fill: #c0392b; -fx-font-weight: bold; }
+.login-card .text-field { -fx-font-size: 14px; }
+
+.balance-big { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #138d75; }
+
+.chat-view { -fx-background-color: transparent; }
+.chat-author { -fx-font-weight: bold; -fx-text-fill: #138d75; -fx-font-size: 11px; }
+.chat-author-me { -fx-font-weight: bold; -fx-text-fill: #0b3d4a; -fx-font-size: 11px; }
+.chat-text { -fx-text-fill: #0b3d4a; }

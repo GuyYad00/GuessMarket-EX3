@@ -1,0 +1,156 @@
+/* Guess Market web client: same look and feel as the JavaFX "Light" theme. */
+
+:root {
+  --bg: #f3f5f8;
+  --card: #ffffff;
+  --header: #1f4e79;
+  --header-2: #2d6aa3;
+  --text: #1e2a36;
+  --muted: #5f6f80;
+  --line: #d9e1ea;
+  --primary: #2d6aa3;
+  --primary-hover: #245685;
+  --danger: #c0392b;
+  --ok: #2ecc71;
+  --warn: #e67e22;
+  --money: #1e8449;
+  --row-hover: #eef4fa;
+  --selected: #dce9f7;
+  font-size: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+a { color: var(--primary); }
+
+h1, h2, h3 { margin: 0 0 8px 0; }
+h1 { font-size: 22px; }
+h2 { font-size: 17px; color: var(--header); }
+h3 { font-size: 15px; color: var(--header); }
+
+.muted { color: var(--muted); }
+.money { color: var(--money); font-weight: 600; }
+.negative { color: var(--danger); font-weight: 600; }
+.hidden { display: none !important; }
+
+/* ---------- header ---------- */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--header), var(--header-2));
+  color: #fff;
+}
+.app-title { font-size: 20px; font-weight: 700; letter-spacing: .3px; }
+.app-header .sep { width: 1px; height: 24px; background: rgba(255,255,255,.4); }
+.user-badge { font-weight: 600; }
+.conn { display: flex; align-items: center; gap: 6px; font-style: italic; opacity: .95; }
+.conn .dot { width: 11px; height: 11px; border-radius: 50%; background: #999; }
+.conn.connected .dot { background: var(--ok); }
+.conn.disconnected .dot { background: var(--danger); }
+.spacer { flex: 1; }
+
+nav.tabs { display: flex; gap: 4px; padding: 8px 16px 0 16px; background: #e4e9ef; border-bottom: 1px solid var(--line); }
+nav.tabs a {
+  padding: 7px 14px; border: 1px solid var(--line); border-bottom: none; border-radius: 6px 6px 0 0;
+  background: #f0f3f6; color: var(--text); text-decoration: none; font-weight: 600;
+}
+nav.tabs a.active { background: var(--card); color: var(--header); }
+
+/* ---------- buttons / inputs ---------- */
+
+button {
+  font: inherit; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--line);
+  background: #fff; color: var(--text); cursor: pointer;
+}
+button:hover { background: #f4f7fa; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+button.primary { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
+button.primary:hover:not(:disabled) { background: var(--primary-hover); }
+button.danger { background: var(--danger); border-color: var(--danger); color: #fff; font-weight: 600; }
+button.toggle { padding: 4px 12px; border-radius: 14px; }
+button.toggle.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+input, select {
+  font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--text);
+}
+input:focus, select:focus { outline: 2px solid #bcd3ea; border-color: var(--primary); }
+input.short { width: 110px; }
+
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.row label { color: var(--muted); }
+
+/* ---------- layout ---------- */
+
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.page { padding: 14px 16px; }
+.split { display: grid; grid-template-columns: 340px 1fr; gap: 14px; align-items: start; }
+.split.wide-left { grid-template-columns: 1fr 1.3fr; }
+@media (max-width: 900px) { .split, .split.wide-left { grid-template-columns: 1fr; } }
+
+.info-grid { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; }
+.info-grid .k { color: var(--muted); }
+.info-grid .v { font-weight: 600; }
+.info-grid .badge { justify-self: start; }
+
+/* ---------- tables ---------- */
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6px 8px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { background: #eef2f6; color: var(--header); font-weight: 600; position: sticky; top: 0; }
+tbody tr:hover { background: var(--row-hover); }
+tr.selected { background: var(--selected) !important; }
+tr.clickable { cursor: pointer; }
+.table-wrap { overflow: auto; max-height: 420px; border: 1px solid var(--line); border-radius: 6px; }
+td.num, th.num { text-align: right; }
+.empty { padding: 18px; text-align: center; color: var(--muted); }
+
+/* ---------- event list ---------- */
+
+ul.event-list { list-style: none; margin: 0; padding: 0; max-height: 70vh; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+ul.event-list li { padding: 8px 10px; border-bottom: 1px solid var(--line); cursor: pointer; }
+ul.event-list li:hover { background: var(--row-hover); }
+ul.event-list li.selected { background: var(--selected); }
+ul.event-list .title { font-weight: 600; }
+ul.event-list .sub { font-size: 12px; color: var(--muted); }
+
+.badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; background: #e6edf5; color: var(--header); }
+.badge.active { background: #e3f7ea; color: #1e8449; }
+.badge.closed { background: #f6e3e1; color: var(--danger); }
+
+/* ---------- login ---------- */
+
+.login-bg { min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #1f4e79, #2d6aa3 60%, #3c7fc0); }
+.login-card { width: 440px; max-width: 94vw; padding: 28px; border-radius: 12px; }
+.login-card h1 { color: var(--header); font-size: 26px; }
+.login-card .hint { font-style: italic; color: var(--warn); font-size: 12px; }
+.error { color: var(--danger); font-weight: 600; min-height: 1.3em; }
+
+/* ---------- messages (toast) ---------- */
+
+#toast {
+  position: fixed; right: 18px; bottom: 18px; max-width: 460px; padding: 12px 16px; border-radius: 8px;
+  background: #1e2a36; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.25); white-space: pre-line;
+  opacity: 0; transform: translateY(10px); transition: opacity .2s, transform .2s; z-index: 50; pointer-events: none;
+}
+#toast.show { opacity: 1; transform: translateY(0); }
+#toast.error { background: var(--danger); }
+#toast.ok { background: #1e8449; }
+
+/* ---------- small chart (balance / price history) ---------- */
+
+.chart { width: 100%; height: 160px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }

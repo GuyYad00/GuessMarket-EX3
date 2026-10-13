@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess Market - Events</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-title">Guess Market</span>
+    <span class="sep"></span>
+    <span id="user-badge" class="user-badge"></span>
+    <span id="conn" class="conn"><span class="dot"></span><span>Connecting...</span></span>
+    <span class="spacer"></span>
+    <button id="logout-button" class="danger">Logout</button>
+  </header>
+  <nav class="tabs">
+    <a href="events.html" data-tab="events">Events</a>
+    <a href="account.html" data-tab="account">Account</a>
+  </nav>
+
+  <main class="page">
+    <div class="card" id="filters">
+      <div class="row"><label>By method:</label><span class="row" data-filter="method"></span></div>
+      <div class="row" style="margin-top:6px"><label>By status:</label><span class="row" data-filter="status"></span></div>
+      <div class="row" style="margin-top:6px"><label>By commission:</label><span class="row" data-filter="commission"></span></div>
+    </div>
+
+    <div class="split">
+      <section class="card">
+        <h2>Events</h2>
+        <ul id="event-list" class="event-list"></ul>
+      </section>
+      <section id="details">
+        <div class="card empty">Select an event to see its details.</div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>
