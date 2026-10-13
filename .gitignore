@@ -15,6 +15,9 @@ readme*.docx
 # Course-provided sample inputs and schema: used locally and in the submission, not redistributed publicly.
 samples/
 
+# Private write-up - local only, not for GitHub or the grader.
+project-explained.html
+
 # Node
 web-client/node_modules/
 
